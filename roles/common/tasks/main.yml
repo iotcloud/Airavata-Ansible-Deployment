@@ -1,0 +1,3 @@
+---
+- name: Create airavata user
+  user: name=airavata comment="Airavata User" shell=/bin/bash 
