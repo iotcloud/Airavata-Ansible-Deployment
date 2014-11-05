@@ -1,0 +1,6 @@
+---
+java_download_url: http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz
+java_install_path: /usr/java
+java_archive: "{{java_install_path}}/jdk-7u71-linux-x64.tar.gz"
+java_name: "{{java_install_path}}/jdk1.7.0_71"
+java_symlink: "{{java_install_path}}/latest"
