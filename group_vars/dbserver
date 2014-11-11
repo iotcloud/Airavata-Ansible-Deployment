@@ -1,0 +1,6 @@
+---
+mysql_port: 3306
+airavata_db: airavata_gta_dev
+appcatalog_db: appcatalog_gta_dev
+dbuser: gtaDevUser
+dbpassword: set_your_secret

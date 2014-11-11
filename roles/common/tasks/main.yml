@@ -1,9 +1,18 @@
 ---
+- name: Install libselinux-python
+  yum: name=libselinux-python state=latest
+
 - name: Create airavata user
   user: name=airavata comment="Airavata User" shell=/bin/bash 
 
+- name: Create Java install path
+  file: state=directory path={{java_install_path}} owner=root group=root
+
+- name: Set symlink for default Java
+  file: state=link path={{java_default}} src={{java_symlink}}
+
 - name: Download Oracle Java 7
-  command: "wget -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}}"
+  command: "wget -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}} creates={{java_archive}}"
 
 - name: Unpack Java archive
   command: "tar zxf {{java_archive}} -C {{java_install_path}} creates={{java_name}}"
@@ -14,5 +23,3 @@
 - name: Set symlink for latest Java
   file: state=link path={{java_symlink}} src={{java_name}}
 
-- name: Remove Java archive
-  file: path={{java_archive}} state=absent

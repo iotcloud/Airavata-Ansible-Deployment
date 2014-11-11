@@ -1,5 +1,10 @@
 ---
-- hosts: local
+- hosts: all
   remote_user: root
   roles:
   - common
+
+- hosts: dbserver
+  remote_user: root
+  roles:
+  - db
