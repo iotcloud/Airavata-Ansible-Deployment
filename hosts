@@ -3,7 +3,6 @@ gw9.iu.xsede.org
 
 [dbserver]
 gw7.iu.xsede.org
-#gw9.iu.xsede.org
 
-[local:children]
-dbserver
+[zookeeper]
+gw7.iu.xsede.org

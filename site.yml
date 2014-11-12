@@ -8,3 +8,8 @@
   remote_user: root
   roles:
   - db
+
+- hosts: zookeeper
+  remote_user: root
+  roles:
+  - zookeeper
