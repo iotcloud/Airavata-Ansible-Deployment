@@ -1,0 +1,34 @@
+---
+- name: Install erlang
+  yum: name=erlang state=latest
+
+- name: Create RabbitMQ install path
+  file: state=directory path={{rabbitmq_install_path}}
+
+- name: Download RabbitMQ
+  get_url: url={{rabbitmq_download_url}} dest={{rabbitmq_archive}}
+
+- name: Unpack RabbitMQ archive
+  unarchive: src={{rabbitmq_archive}} dest={{rabbitmq_install_path}} copy=no creates={{rabbitmq_home}}
+
+- name: Update default RabbitMQ conf file
+  lineinfile: dest={{rabbitmq_sample_cfg}} state=present
+              regexp="^\s*%% {loopback_users, \[\]},$" 
+              line="{loopback_users, []}"
+
+- name: Set symlink for RabbitMQ cfg file
+  file: state=link path={{rabbitmq_cfg}} src={{rabbitmq_sample_cfg}}
+
+- name: Fix ownership
+  file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes
+
+- name: Set up RabbitMQ firewall rule
+  lineinfile: dest=/etc/sysconfig/iptables state=present
+              regexp="^-A INPUT -s {{hostvars[item]['ansible_default_ipv4']['address']}} -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT$"
+              line="-A INPUT -s {{hostvars[item]['ansible_default_ipv4']['address']}} -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT"
+              insertbefore="^-A INPUT -j REJECT .*$"
+  with_items:
+    - "{{groups['airavata']}}"
+  notify: 
+    - restart iptables
+    - start rabbitmq

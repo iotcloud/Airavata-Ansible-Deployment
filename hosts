@@ -6,3 +6,6 @@ gw7.iu.xsede.org
 
 [zookeeper]
 gw7.iu.xsede.org
+
+[rabbitmq]
+gw7.iu.xsede.org
