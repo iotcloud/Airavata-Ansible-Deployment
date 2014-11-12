@@ -12,9 +12,9 @@
   unarchive: src={{rabbitmq_archive}} dest={{rabbitmq_install_path}} copy=no creates={{rabbitmq_home}}
 
 - name: Update default RabbitMQ conf file
-  lineinfile: dest={{rabbitmq_sample_cfg}} state=present
+  lineinfile: dest={{rabbitmq_sample_cfg}} state=present backrefs=yes
               regexp="^\s*%% {loopback_users, \[\]},$" 
-              line="{loopback_users, []}"
+              line="    {loopback_users, []}"
 
 - name: Set symlink for RabbitMQ cfg file
   file: state=link path={{rabbitmq_cfg}} src={{rabbitmq_sample_cfg}}
