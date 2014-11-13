@@ -1,0 +1,26 @@
+---
+- name: Create Airavata install path
+  file: state=directory path={{airavata_install_path}}
+
+- name: Download Airavata Binary
+  get_url: url={{airavata_bin_download_url}} dest={{airavata_archive}}
+
+- name: Unpack Airavata archive
+  unarchive: src={{airavata_archive}} dest={{airavata_install_path}} copy=no creates={{airavata_server_home}}
+
+- name: Update Airavata server property file
+  lineinfile: dest={{airavata_server_property}} state=present backrefs=yes
+              regexp="{{item.regexp}}"
+              line="{{item.line}}"
+  with_items:
+    - {regexp: "registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver", 
+       line: "#registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver"}
+    - {regexp: "registry.jdbc.url=jdbc:derby://localhost:1527/persistent_data;create=true;user=airavata;password=airavata",
+       line: "#registry.jdbc.url=jdbc:derby://localhost:1527/persistent_data;create=true;user=airavata;password=airavata"}
+    - {regexp: "#registry.jdbc.driver=com.mysql.jdbc.Driver",
+       line: "registry.jdbc.driver=com.mysql.jdbc.Driver"}
+    - {regexp: "#registry.jdbc.url=jdbc:mysql://localhost:3306/persistent_data",
+       line: "registry.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/persistent_data"}
+
+- name: Fix ownership
+  file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes
