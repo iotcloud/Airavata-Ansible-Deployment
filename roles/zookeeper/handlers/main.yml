@@ -1,10 +1,3 @@
 ---
 - name: restart iptables
   service: name=iptables state=restarted
-
-- name: start zookeeper
-  environment:
-    JAVA_HOME: "{{java_default}}"
-  sudo: yes
-  sudo_user: airavata
-  command: "{{zookeeper_home}}/bin/zkServer.sh start"

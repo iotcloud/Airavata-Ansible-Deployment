@@ -24,11 +24,15 @@
 
 - name: Set up RabbitMQ firewall rule
   lineinfile: dest={{iptable_rule_file}} state=present
-              regexp="^-A INPUT -s {{hostvars[item]['ansible_default_ipv4']['address']}} -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT$"
-              line="-A INPUT -s {{hostvars[item]['ansible_default_ipv4']['address']}} -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT"
+              regexp="^-A INPUT -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT$"
+              line="-A INPUT -p tcp -m state --state NEW -m tcp --dport {{rabbitmq_port}} -j ACCEPT"
               insertbefore="^-A INPUT -j REJECT .*$"
-  with_items:
-    - "{{groups['airavata']}}"
   notify: 
     - restart iptables
-    - start rabbitmq
+
+- name: Start RabbitMQ
+  environment:
+    JAVA_HOME: "{{java_default}}"
+  sudo: yes
+  sudo_user: airavata
+  command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"

@@ -1,7 +1,7 @@
 [airavata:children]
 api_server
-#orchestrator_server
-#gfac_server
+orchestrator_server
+gfac_server
 
 [airavata:vars]
 db_server=gw7.iu.xsede.org
