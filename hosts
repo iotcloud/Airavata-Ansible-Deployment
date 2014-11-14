@@ -1,12 +1,15 @@
 [airavata:children]
-api_server
-orchestrator_server
-gfac_server
+apiserver
+orchestrator
+gfac
 
 [airavata:vars]
 db_server=gw7.iu.xsede.org
-zookeeper=gw7.iu.xsede.org
-amqp_server=gw7.iu.xsede.org
+zookeeper_server=gw7.iu.xsede.org
+rabbitmq_server=gw7.iu.xsede.org
+api_server=gw7.iu.xsede.org
+orchestrator_server=gw7.iu.xsede.org
+gfac_server=gw7.iu.xsede.org
 
 [dbserver]
 gw7.iu.xsede.org
@@ -17,11 +20,11 @@ gw7.iu.xsede.org
 [rabbitmq]
 gw7.iu.xsede.org
 
-[api_server]
+[apiserver]
 gw7.iu.xsede.org
 
-[orchestrator_server]
+[orchestrator]
 gw7.iu.xsede.org
 
-[gfac_server]
+[gfac]
 gw9.iu.xsede.org

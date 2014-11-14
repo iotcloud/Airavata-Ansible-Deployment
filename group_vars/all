@@ -16,5 +16,8 @@ dbuser: gtaDevUser
 dbpassword: set_your_secret
 
 rabbitmq_port: 5672
-
 zookeeper_port: 2181
+
+api_server_port: 8930
+orchestrator_server_port: 8931
+gfac_server_port: 8932

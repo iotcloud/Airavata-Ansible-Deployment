@@ -1,25 +1,40 @@
 ---
-- hosts: all
-  remote_user: root
-  roles:
-  - common
+#- hosts: all
+#  remote_user: root
+#  roles:
+#  - common
 
-- hosts: dbserver
-  remote_user: root
-  roles:
-  - db
+#- hosts: dbserver
+#  remote_user: root
+#  roles:
+#  - db
 
-- hosts: zookeeper
-  remote_user: root
-  roles:
-  - zookeeper
+#- hosts: zookeeper
+#  remote_user: root
+#  roles:
+#  - zookeeper
 
-- hosts: rabbitmq
-  remote_user: root
-  roles:
-  - rabbitmq
+#- hosts: rabbitmq
+#  remote_user: root
+#  roles:
+#  - rabbitmq
 
 - hosts: airavata
   remote_user: root
   roles:
   - airavata_common
+
+- hosts: apiserver
+  remote_user: root
+  roles:
+  - apiserver
+
+- hosts: orchestrator
+  remote_user: root
+  roles:
+  - orchestrator
+
+- hosts: gfac
+  remote_user: root
+  roles:
+  - gfac

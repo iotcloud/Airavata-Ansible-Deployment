@@ -8,11 +8,27 @@
 - name: Unpack Airavata archive
   unarchive: src={{airavata_archive}} dest={{airavata_install_path}} copy=no creates={{airavata_server_home}}
 
+- name: Create credential store keystore path
+  file: state=directory path={{credential_store_keystore_path}}
+
+- name: Download credential store keystore file
+  get_url: url={{credential_store_keystore_download_url}} dest={{credential_store_keystore_file}}
+
+- name: Download XSEDE certificates
+  get_url: url={{xsede_cert_download_url}} dest={{xsede_cert_archive}}
+
+- name: Upack XSEDE certificate archive
+  unarchive: src={{xsede_cert_archive}} dest={{airavata_install_path}} copy=no creates={{xsede_cert_home}}
+
+- name: Copy airavata ssh key directory
+  copy: src={{local_ssh_key_path}} dest={{airavata_ssh_key_path}} owner=airavata group=airavata
+
 - name: Update Airavata server property file
   lineinfile: dest={{airavata_server_property}} state=present backrefs=yes
               regexp="{{item.regexp}}"
               line="{{item.line}}"
   with_items:
+    # API Server Registry Configuration
     - {regexp: "registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver", 
        line: "#registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver"}
     - {regexp: "registry.jdbc.url=jdbc:derby://localhost:1527/persistent_data;create=true;user=airavata;password=airavata",
@@ -20,7 +36,81 @@
     - {regexp: "#registry.jdbc.driver=com.mysql.jdbc.Driver",
        line: "registry.jdbc.driver=com.mysql.jdbc.Driver"}
     - {regexp: "#registry.jdbc.url=jdbc:mysql://localhost:3306/persistent_data",
-       line: "registry.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/persistent_data"}
+       line: "registry.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/{{airavata_db}}"}
+    - {regexp: "registry.jdbc.user=airavata", 
+       line: "registry.jdbc.user={{dbuser}}"}
+    - {regexp: "registry.jdbc.password=airavata",
+       line: "registry.jdbc.password={{dbpassword}}"}
+
+    # Application Catalog DB Configuration
+    - {regexp: "appcatalog.jdbc.driver=org.apache.derby.jdbc.ClientDriver",
+       line: "#appcatalog.jdbc.driver=org.apache.derby.jdbc.ClientDriver"}
+    - {regexp: "appcatalog.jdbc.url=jdbc:derby://localhost:1527/app_catalog;create=true;user=airavata;password=airavata",
+       line: "#appcatalog.jdbc.url=jdbc:derby://localhost:1527/app_catalog;create=true;user=airavata;password=airavata"}
+    - {regexp: "#appcatalog.jdbc.driver=com.mysql.jdbc.Driver",
+       line: "appcatalog.jdbc.driver=com.mysql.jdbc.Driver"}
+    - {regexp: "#appcatalog.jdbc.url=jdbc:mysql://localhost:3306/app_catalog",
+       line: "appcatalog.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/{{appcatalog_db}}"}
+    - {regexp: "appcatalog.jdbc.user=airavata", 
+       line: "appcatalog.jdbc.user={{dbuser}}"}
+    - {regexp: "appcatalog.jdbc.password=airavata",
+       line: "appcatalog.jdbc.password={{dbpassword}}"}
+
+    # Server module Configuration
+    - {regexp: "apiserver.server.host=localhost",
+       line: "apiserver.server.host={{api_server}}"}
+    - {regexp: "apiserver.server.port=8930",
+       line: "apiserver.server.port={{api_server_port}}"}
+    - {regexp: "orchestrator.server.host=localhost",
+       line: "orchestrator.server.host={{orchestrator_server}}"}
+    - {regexp: "orchestrator.server.port=8940",
+       line: "orchestrator.server.port={{orchestrator_server_port}}"}
+    - {regexp: "gfac.server.host=localhost",
+       line: "gfac.server.host={{gfac_server}}"}
+    - {regexp: "gfac.server.port=8950",
+       line: "gfac.server.port={{gfac_server_port}}"}
+
+    # Credential Store module Configuration
+    - {regexp: "^credential.store.keystore.url=.*",
+       line: "credential.store.keystore.url={{credential_store_keystore_file}}"}
+    - {regexp: "^credential.store.jdbc.url=.*",
+       line: "credential.store.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/{{airavata_db}}"}
+    - {regexp: "credential.store.jdbc.user=airavata", 
+       line: "credential.store.jdbc.user={{dbuser}}"}
+    - {regexp: "credential.store.jdbc.password=airavata",
+       line: "credential.store.jdbc.password={{dbpassword}}"}
+    - {regexp: "credential.store.jdbc.driver=org.apache.derby.jdbc.ClientDriver",
+       line: "credential.store.jdbc.driver=com.mysql.jdbc.Driver"}
+
+    # Airavata GFac MyProxy GSI credentials to access Grid Resources.
+    - {regexp: "myproxy.username=ogce",
+       line: "myproxy.username={{myproxy_username}}"}
+    - {regexp: "myproxy.password=.*",
+       line: "myproxy.password={{myproxy_password}}"}
+    - {regexp: "trusted.cert.location=.*",
+       line: "trusted.cert.location={{xsede_cert_home}}"}
+
+    # SSH Key pair authentication
+    - {regexp: "#public.ssh.key=.*",
+       line: "public.ssh.key={{airavata_ssh_key_path}}/id_rsa.pub"}
+    - {regexp: "#ssh.username=.*",
+       line: "ssh.username={{ssh_username}}"}
+    - {regexp: "#private.ssh.key=.*",
+       line: "private.ssh.key={{airavata_ssh_key_path}}/id_rsa"}
+    - {regexp: "#ssh.keypass=.*",
+       line: "ssh.keypass={{ssh_keypass}}"}
+
+    # AMQP Notification Configuration
+    - {regexp: "rabbitmq.broker.url=amqp://localhost:5672",
+       line: "rabbitmq.broker.url=amqp://{{rabbitmq_server}}:{{rabbitmq_port}}"}
+
+    # Zookeeper Server Configuration
+    - {regexp: "embedded.zk=true", 
+       line: "embedded.zk=false"}
+    - {regexp: "zookeeper.server.host=localhost",
+       line: "zookeeper.server.host={{zookeeper_server}}"}
+    - {regexp: "zookeeper.server.port=2181",
+       line: "zookeeper.server.port={{zookeeper_port}}"}
 
 - name: Fix ownership
   file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes

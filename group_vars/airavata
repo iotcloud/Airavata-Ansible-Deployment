@@ -1,10 +1,21 @@
 ---
 airavata_bin_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
-airavata_install_path: "{{airavata_home}}/production/deploy/"
+airavata_install_path: "{{airavata_home}}/production/deploy"
 airavata_archive: "{{airavata_install_path}}/apache-airavata-server-0.14-SNAPSHOT-bin.tar.gz"
 airavata_server_home: "{{airavata_install_path}}/apache-airavata-server-0.14-SNAPSHOT"
 airavata_server_property: "{{airavata_server_home}}/bin/airavata-server.properties"
 
-api_server_port: 8930
-orchestrator_server_port: 8931
-gfac_server_port: 8932
+credential_store_keystore_download_url: https://iu.box.com/shared/static/znugk2zsrik23ovmi3o5.jks
+credential_store_keystore_path: "{{airavata_install_path}}/credential_store_tokens"
+credential_store_keystore_file: "{{credential_store_keystore_path}}/airavata_sym.jks"
+
+myproxy_username: ogce
+myproxy_password: set_your_secret
+xsede_cert_download_url: http://software.xsede.org/security/xsede-certs.tar.gz 
+xsede_cert_archive: "{{airavata_install_path}}/xsede-certs.tar.gz"
+xsede_cert_home: "{{airavata_install_path}}/certificates"
+
+local_ssh_key_path: /tmp/airavata_ssh_keys
+airavata_ssh_key_path: "{{airavata_home}}/.ssh"
+ssh_username: ogce
+ssh_keypass: set_your_secret
