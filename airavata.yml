@@ -1,24 +1,4 @@
 ---
-- hosts: all
-  remote_user: root
-  roles:
-  - common
-
-- hosts: dbserver
-  remote_user: root
-  roles:
-  - db
-
-- hosts: zookeeper
-  remote_user: root
-  roles:
-  - zookeeper
-
-- hosts: rabbitmq
-  remote_user: root
-  roles:
-  - rabbitmq
-
 - hosts: apiserver
   remote_user: root
   vars:

@@ -1,0 +1,3 @@
+---
+dependencies:
+  - {role: airavata_common, airavata_bin_download_url: "{{orchestrator_download_url}}"}

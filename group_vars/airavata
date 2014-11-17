@@ -1,8 +1,9 @@
 ---
-airavata_bin_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
+airavata_version: 0.14-SNAPSHOT
+#airavata_bin_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
 airavata_install_path: "{{airavata_home}}/production/deploy"
-airavata_archive: "{{airavata_install_path}}/apache-airavata-server-0.14-SNAPSHOT-bin.tar.gz"
-airavata_server_home: "{{airavata_install_path}}/apache-airavata-server-0.14-SNAPSHOT"
+airavata_archive: "{{airavata_install_path}}/apache-{{airavata_server}}-{{airavata_version}}-bin.tar.gz"
+airavata_server_home: "{{airavata_install_path}}/apache-{{airavata_server}}-{{airavata_version}}"
 airavata_server_property: "{{airavata_server_home}}/bin/airavata-server.properties"
 
 credential_store_keystore_download_url: https://iu.box.com/shared/static/znugk2zsrik23ovmi3o5.jks
@@ -19,3 +20,7 @@ local_ssh_key_path: /tmp/airavata_ssh_keys
 airavata_ssh_key_path: "{{airavata_home}}/.ssh"
 ssh_username: ogce
 ssh_keypass: set_your_secret
+
+apiserver_download_url: https://iu.box.com/shared/static/jagu2d72yxi20489b58a.gz
+orchestrator_download_url: https://iu.box.com/shared/static/ezsbzud4c2h9wmi2m0ip.gz
+gfac_download_url: https://iu.box.com/shared/static/ew702g62ek52q2zps90x.gz

@@ -1,0 +1,3 @@
+---
+dependencies:
+  - {role: airavata_common, airavata_bin_download_url: "{{apiserver_download_url}}"}
