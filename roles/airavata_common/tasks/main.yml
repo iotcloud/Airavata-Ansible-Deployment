@@ -8,6 +8,15 @@
 - name: Unpack Airavata archive
   unarchive: src={{airavata_archive}} dest={{airavata_install_path}} copy=no creates={{airavata_server_home}}
 
+- name: Download MySQL JDBC driver 
+  get_url: url={{mysql_jdbc_driver_download_url}} dest={{mysql_jdbc_driver_archive}}
+
+- name: Unpack MySQL JDBC driver archive
+  unarchive: src={{mysql_jdbc_driver_archive}} dest={{airavata_install_path}} copy=no creates={{mysql_jdbc_driver_path}}
+
+- name: Link MySQL JDBC jar to Airavata lib
+  file: state=link path="{{airavata_server_home}}/lib/{{mysql_jdbc_driver_jar}}" src="{{mysql_jdbc_driver_path}}/{{mysql_jdbc_driver_jar}}"
+
 - name: Create credential store keystore path
   file: state=directory path={{credential_store_keystore_path}}
 
