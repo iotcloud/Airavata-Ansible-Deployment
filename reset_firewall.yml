@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+  - {role: iptables_remove_rule, firewall_port: 3306}
+  - {role: iptables_remove_rule, firewall_port: 2181}
+  - {role: iptables_remove_rule, firewall_port: 5672}
+  - {role: iptables_remove_rule, firewall_port: 8930} 
+  - {role: iptables_remove_rule, firewall_port: 8931}
+  - {role: iptables_remove_rule, firewall_port: 8932}

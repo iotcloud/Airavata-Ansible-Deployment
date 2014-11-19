@@ -1,0 +1,5 @@
+---
+- name: Delete a firewall rule
+  lineinfile: dest={{iptable_rule_file}} state=absent
+              regexp="^-A INPUT .* --dport {{firewall_port}} -j ACCEPT$"
+  notify: restart iptables
