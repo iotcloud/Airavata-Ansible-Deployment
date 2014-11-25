@@ -4,6 +4,7 @@ Airavata-Ansible-Deployment
   - site.yml: Complete installation from scratch of all Airavata components, including dependencies. 
   - airavata.yml: Airavata only updates, with cleanup of the old installation, and restart of ZooKeeper server. 
   - reset_firewall.yml: An example of deleting firewall rules. 
+  - single_airavata.yml: Playbook for single all_in_one airavata server update. 
 
 2. hosts:
   - Server groups are defined. Each group (e.g. dbserver, apiserver, etc.) can contain multiple servers. Variables defined under [airavata:vars] are used for the airavatar-server.properties file. For example, if multiple servers are deployed of a single component, say dbserver, for load-balancing purpose, the variable db_server defined under [airavata:vars] should point to the load-balancer address of the group of servers. 
