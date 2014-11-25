@@ -1,0 +1,18 @@
+---
+- name: Create Airavata backup path
+  sudo: yes
+  sudo_user: airavata
+  file: state=directory path={{airavata_backup_path}}
+
+- name: Stop Airavata servers
+  environment:
+    JAVA_HOME: "{{java_default}}"
+  sudo: yes
+  sudo_user: airavata
+  command: "{{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}/bin/airavata-server.sh stop --force removes={{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}/bin/airavata-server.sh"
+
+- name: Move old archive files 
+  command: "mv {{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}-bin.tar.gz {{airavata_backup_path}} removes={{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}-bin.tar.gz"
+
+- name: Move old installation directory
+  command: "mv {{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}/ {{airavata_backup_path}} removes={{airavata_install_path}}/apache-airavata-server-{{old_airavata_version}}/"

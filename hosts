@@ -4,28 +4,27 @@ orchestrator
 gfac
 
 [airavata:vars]
-db_server=gw7.iu.xsede.org
-zookeeper_server=gw7.iu.xsede.org
-rabbitmq_server=gw7.iu.xsede.org
-api_server=gw7.iu.xsede.org
-orchestrator_server=gw7.iu.xsede.org
-gfac_server=gw7.iu.xsede.org
+db_server=gw85.iu.xsede.org
+zookeeper_server=gw127.iu.xsede.org
+rabbitmq_server=gw127.iu.xsede.org
+api_server=gw127.iu.xsede.org
+orchestrator_server=gw127.iu.xsede.org
+gfac_server=gw127.iu.xsede.org
 
 [dbserver]
-gw7.iu.xsede.org
+gw85.iu.xsede.org
 
 [zookeeper]
-gw7.iu.xsede.org
+gw127.iu.xsede.org
 
 [rabbitmq]
-gw7.iu.xsede.org
+gw127.iu.xsede.org
 
 [apiserver]
-gw7.iu.xsede.org
+gw127.iu.xsede.org
 
 [orchestrator]
-gw7.iu.xsede.org
+gw127.iu.xsede.org
 
 [gfac]
-gw7.iu.xsede.org
-gw9.iu.xsede.org
+gw127.iu.xsede.org
