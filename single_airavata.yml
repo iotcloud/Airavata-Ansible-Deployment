@@ -1,4 +1,9 @@
 ---
+- hosts: apiserver
+  remote_user: root
+  roles:
+  - airavata_cleanup
+
 - hosts: zookeeper
   remote_user: root
   tasks:
@@ -14,5 +19,4 @@
   vars:
     airavata_server: airavata-server
   roles:
-  - airavata_all_in_one_cleanup
   - airavata_all_in_one

@@ -14,6 +14,7 @@
     - api-server
     - orchestrator-server
     - gfac-server
+    - airavata-server
 
 - name: Move old archive files 
   command: "mv {{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}-bin.tar.gz {{airavata_backup_path}} removes={{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}-bin.tar.gz"
@@ -21,6 +22,7 @@
     - api-server
     - orchestrator-server
     - gfac-server
+    - airavata-server
 
 - name: Move old installation directory
   command: "mv {{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/ {{airavata_backup_path}} removes={{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/"
@@ -28,3 +30,4 @@
     - api-server
     - orchestrator-server
     - gfac-server
+    - airavata-server
