@@ -10,6 +10,7 @@ rabbitmq_server=gw127.iu.xsede.org
 api_server=gw127.iu.xsede.org
 orchestrator_server=gw127.iu.xsede.org
 gfac_server=gw127.iu.xsede.org
+pga_server=gw120.iu.xsede.org
 
 [dbserver]
 gw85.iu.xsede.org

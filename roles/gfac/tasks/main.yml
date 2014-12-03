@@ -1,4 +1,15 @@
 ---
+- name: Configure GFAC server
+  template: src=gfac-config.xml dest="{{gfac_server_config}}" owner=airavata group=airavata mode=0644
+
+- name: Update GFAC server config file
+  replace: dest="{{gfac_server_config}}" regexp="{{item.regexp}}" 
+           replace="{{item.replace}}"
+  with_items: 
+    - {regexp: "AIRAVATA_HOME", replace: "{{airavata_home}}"}
+    - {regexp: "PGA_SERVER", replace: "{{pga_server}}"}
+    - {regexp: "PGA_PASSPHRASE", replace: "{{pga_passphrase}}"}
+
 - name: Set up GFAC firewall rule
   lineinfile: dest={{iptable_rule_file}} state=present
               regexp="^-A INPUT -s {{hostvars[item]['ansible_default_ipv4']['address']}} -p tcp -m state --state NEW -m tcp --dport {{gfac_server_port}} -j ACCEPT$"

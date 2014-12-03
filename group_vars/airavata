@@ -33,3 +33,6 @@ apiserver_download_url: https://iu.box.com/shared/static/jagu2d72yxi20489b58a.gz
 orchestrator_download_url: https://iu.box.com/shared/static/ezsbzud4c2h9wmi2m0ip.gz
 gfac_download_url: https://iu.box.com/shared/static/ew702g62ek52q2zps90x.gz
 airavata_single_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
+
+gfac_server_config: "{{airavata_server_home}}/bin/gfac-config.xml"
+pga_passphrase: set_your_secret
