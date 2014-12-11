@@ -1,0 +1,16 @@
+---
+- hosts: rabbitmq
+  remote_user: root
+  tasks:
+  - name: Stop RabbitMQ
+    environment:
+      JAVA_HOME: "{{java_default}}"
+    sudo: yes
+    sudo_user: airavata
+    command: "{{rabbitmq_home}}/sbin/rabbitmqctl stop"
+  - name: Start RabbitMQ
+    environment:
+      JAVA_HOME: "{{java_default}}"
+    sudo: yes
+    sudo_user: airavata
+    command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"

@@ -1,0 +1,34 @@
+---
+- hosts: apiserver
+  remote_user: root
+  vars:
+    airavata_server: airavata-server
+  tasks:
+  - name: Stop Airavata server
+    environment:
+      JAVA_HOME: "{{java_default}}"
+    sudo: yes
+    sudo_user: airavata
+    command: "{{airavata_server_home}}/bin/airavata-server.sh stop --force" 
+
+- hosts: zookeeper
+  remote_user: root
+  tasks:
+  - name: Restart ZooKeeper
+    environment:
+      JAVA_HOME: "{{java_default}}"
+    sudo: yes
+    sudo_user: airavata
+    command: "{{zookeeper_home}}/bin/zkServer.sh restart"
+
+- hosts: apiserver
+  remote_user: root
+  vars:
+    airavata_server: airavata-server
+  tasks:
+  - name: Start Airavata servers
+    environment:
+      JAVA_HOME: "{{java_default}}"
+    sudo: yes
+    sudo_user: airavata
+    command: "{{airavata_server_home}}/bin/airavata-server.sh start"
