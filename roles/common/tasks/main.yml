@@ -8,9 +8,6 @@
 - name: Create Java install path
   file: state=directory path={{java_install_path}} owner=root group=root
 
-- name: Set symlink for default Java
-  file: state=link path={{java_default}} src={{java_symlink}}
-
 - name: Download Oracle Java 7
   command: "wget -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}} creates={{java_archive}}"
 
@@ -22,3 +19,6 @@
 
 - name: Set symlink for latest Java
   file: state=link path={{java_symlink}} src={{java_name}}
+
+- name: Set symlink for default Java
+  file: state=link path={{java_default}} src={{java_symlink}}
