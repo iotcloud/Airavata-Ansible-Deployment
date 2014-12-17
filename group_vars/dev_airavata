@@ -36,5 +36,5 @@ airavata_single_download_url: https://dist.apache.org/repos/dist/dev/airavata/0.
 
 gfac_server_config: "{{airavata_server_home}}/bin/gfac-config.xml"
 pga_passphrase: set_your_secret
-pga_output_path: /var/www/experimentData/
+pga_output_path: /home/pga/production/experimentData/
 default_gateway_name: default

@@ -1,0 +1,7 @@
+---
+zookeeper_download_url: http://apache.arvixe.com/zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz
+zookeeper_install_path: "{{airavata_home}}/production/deploy"
+zookeeper_archive: "{{zookeeper_install_path}}/zookeeper-3.3.6.tar.gz"
+zookeeper_home: "{{zookeeper_install_path}}/zookeeper-3.3.6"
+zookeeper_sample_cfg: "{{zookeeper_home}}/conf/zoo_sample.cfg"
+zookeeper_cfg: "{{zookeeper_home}}/conf/zoo.cfg"

@@ -10,13 +10,13 @@ java_symlink: "{{java_install_path}}/latest"
 java_default: "{{java_install_path}}/default"
 
 mysql_port: 3306
-airavata_db: airavata_gta_prod
-appcatalog_db: appcatalog_gta_prod
-dbuser: gtaAiravataUser
+airavata_db: airavata_gta_dev
+appcatalog_db: appcatalog_gta_dev
+dbuser: gtaDevUser
 dbpassword: set_your_secret
 
 rabbitmq_port: 5672
-zookeeper_port: 9181
+zookeeper_port: 2181
 
 api_server_port: 9930
 orchestrator_server_port: 9940

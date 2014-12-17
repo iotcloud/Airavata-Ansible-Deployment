@@ -23,3 +23,20 @@ Update any download_url and installation paths as desired before deployment.
   - roles/*/tasks/main.yml performs real work.  
   - roles/*/handlers/main.yml restarts iptable when firewall rules are updated.
   - roles/*/meta/main.yml defines the dependency of individual airavata server component to the airavata_common role, with parameterized download url.  
+
+5. Internal Notes:
+  - Default settings included in group_vars/* are conform with gw127, only airavata version variables and passwords need to be set correctly before deployment:
+	* "airavata_version" and "old_airavata_version" in group_vars/airavata;
+	* "myproxy_password", "ssh_keypass" and "pga_passphrase" in group_vars/airavata;
+	* "dbpassword" in group_vars/all
+  - For deployment on gw111, copy the set of dev configurations as follows:
+	cp group_vars/dev_all group_vars/all 
+	cp group_vars/dev_airavata group_vars/airavata
+	cp group_vars/dev_zookeeper group_vars/zookeeper
+ 	cp dev_hosts hosts
+    Then update version variables and passwords as outline above. 
+   - Execute one of the playbooks as desired. For example:
+	* To restart all-in-one airavata server:
+		ansible-playbook -i hosts restart_single_airavata.yml
+	* To redeploy all-in-one airavata server:
+		ansible-playbook -i hosts single_airavata.yml
