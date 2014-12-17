@@ -85,7 +85,7 @@
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
                         <property name="userName" value="root"/>
                         <property name="hostName" value="PGA_SERVER"/>
-                        <property name="outputPath" value="/var/www/experimentData/"/>
+                        <property name="outputPath" value="PGA_OUTPUTPATH"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>
                 </Handler>
         </OutHandlers>
@@ -110,7 +110,7 @@
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
                         <property name="userName" value="root"/>
                         <property name="hostName" value="PGA_SERVER"/>
-                        <property name="outputPath" value="/var/www/experimentData/"/>
+                        <property name="outputPath" value="PGA_OUTPUTPATH"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>
                 </Handler>
             </OutHandlers>

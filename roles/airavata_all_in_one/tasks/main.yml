@@ -9,6 +9,7 @@
     - {regexp: "AIRAVATA_HOME", replace: "{{airavata_home}}"}
     - {regexp: "PGA_SERVER", replace: "{{pga_server}}"}
     - {regexp: "PGA_PASSPHRASE", replace: "{{pga_passphrase}}"}
+    - {regexp: "PGA_OUTPUTPATH", replace: "{{pga_output_path}}"}
 
 - name: Set up API Server firewall rule
   lineinfile: dest={{iptable_rule_file}} state=present
