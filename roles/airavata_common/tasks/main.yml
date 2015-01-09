@@ -4,6 +4,11 @@
 
 - name: Download Airavata Binary
   get_url: url={{airavata_bin_download_url}} dest={{airavata_archive}}
+  when: "'SNAPSHOT' not in airavata_version"
+
+- name: Copy Airavata SNAPSHOT Binary
+  copy: src={{airavata_local_snapshot_file}} dest={{airavata_archive}}
+  when: "'SNAPSHOT' in airavata_version"
 
 - name: Unpack Airavata archive
   unarchive: src={{airavata_archive}} dest={{airavata_install_path}} copy=no creates={{airavata_server_home}}

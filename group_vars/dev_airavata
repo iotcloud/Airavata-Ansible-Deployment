@@ -5,6 +5,9 @@ old_airavata_version: 0.14
 airavata_install_path: "{{airavata_home}}/production/deploy"
 airavata_backup_path: "{{airavata_home}}/old_backup"
 
+airavata_local_snapshot_path: "/tmp"
+airavata_local_snapshot_file: "{{airavata_local_snapshot_path}}/apache-{{airavata_server}}-{{airavata_version}}-bin.tar.gz"
+
 airavata_archive: "{{airavata_install_path}}/apache-{{airavata_server}}-{{airavata_version}}-bin.tar.gz"
 airavata_server_home: "{{airavata_install_path}}/apache-{{airavata_server}}-{{airavata_version}}"
 airavata_server_property: "{{airavata_server_home}}/bin/airavata-server.properties"
