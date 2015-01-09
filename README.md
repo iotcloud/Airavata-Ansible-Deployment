@@ -45,3 +45,7 @@ Update any download_url and installation paths as desired before deployment.
 		ansible-playbook -i hosts restart_single_airavata.yml
 	* To redeploy all-in-one airavata server:
 		ansible-playbook -i hosts single_airavata.yml
+   - To deploy a SNAPSHOT from local machine instead of downloadable URL, update following variables in group_vars/airavata:
+        * "airavata_version" should contain string "SNAPSHOT", e.g. "0.14-SNAPSHOT"
+        * Specify the absolute local path of SNAPSHOT in "airavata_local_snapshot_path" 
+	* Make sure the SNAPSHOT file conforms with the naming convention "apache-{{airavata_server}}-{{airavata_version}}-bin.tar.gz"
