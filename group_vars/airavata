@@ -1,6 +1,6 @@
 ---
-airavata_version: 0.14
-old_airavata_version: 0.14
+airavata_version: "0.14"
+old_airavata_version: "0.14"
 #airavata_bin_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
 airavata_install_path: "{{airavata_home}}/production/deploy"
 airavata_backup_path: "{{airavata_home}}/old_backup"
@@ -27,7 +27,7 @@ xsede_cert_download_url: http://software.xsede.org/security/xsede-certs.tar.gz
 xsede_cert_archive: "{{airavata_install_path}}/xsede-certs.tar.gz"
 xsede_cert_home: "{{airavata_install_path}}/certificates"
 
-local_ssh_key_path: /tmp/airavata_ssh_keys
+local_ssh_key_path: /tmp/airavata_ssh_keys/
 airavata_ssh_key_path: "{{airavata_home}}/.ssh"
 ssh_username: root
 ssh_keypass: set_your_secret
