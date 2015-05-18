@@ -1,7 +1,7 @@
 ---
 airavata_version: "0.14"
 old_airavata_version: "0.14"
-#airavata_bin_download_url: https://iu.box.com/shared/static/8fya7gi4u890upgs0t3c.gz
+airavata_bin_download_url: https://dist.apache.org/repos/dist/release/airavata/0.14/apache-airavata-server-0.14-bin.tar.gz
 airavata_install_path: "{{airavata_home}}/production/deploy"
 airavata_backup_path: "{{airavata_home}}/old_backup"
 
