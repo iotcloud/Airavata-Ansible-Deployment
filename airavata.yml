@@ -11,7 +11,7 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{zookeeper_home}}/bin/zkServer.sh restart"
 
 - hosts: apiserver

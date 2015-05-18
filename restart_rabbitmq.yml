@@ -6,11 +6,11 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{rabbitmq_home}}/sbin/rabbitmqctl stop"
   - name: Start RabbitMQ
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"

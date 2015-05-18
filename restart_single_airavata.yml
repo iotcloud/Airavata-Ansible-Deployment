@@ -8,7 +8,7 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{airavata_server_home}}/bin/airavata-server.sh stop --force" 
 
 - hosts: zookeeper
@@ -18,7 +18,7 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{zookeeper_home}}/bin/zkServer.sh restart"
 
 - hosts: apiserver
@@ -30,5 +30,5 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: airavata
+    sudo_user: ubuntu
     command: "{{airavata_server_home}}/bin/airavata-server.sh start"

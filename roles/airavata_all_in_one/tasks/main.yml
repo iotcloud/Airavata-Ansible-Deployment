@@ -1,6 +1,6 @@
 ---
 - name: Configure GFAC server
-  template: src=gfac-config.xml dest="{{gfac_server_config}}" owner=airavata group=airavata mode=0644
+  template: src=gfac-config.xml dest="{{gfac_server_config}}" owner=ubuntu group=sudo mode=0644
 
 - name: Update GFAC server config file
   replace: dest="{{gfac_server_config}}" regexp="{{item.regexp}}"
@@ -23,5 +23,5 @@
   environment:
     JAVA_HOME: "{{java_default}}"
   sudo: yes
-  sudo_user: airavata
+  sudo_user: ubuntu
   command: "{{airavata_server_home}}/bin/airavata-server.sh start"
