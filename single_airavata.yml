@@ -6,11 +6,11 @@
 
 -hosts: zookeeper
   remote_user: ubuntu
-  rolts: zookeeper
+  roles: zookeeper
 
 -hosts: rabbitmq
   remote_user: ubuntu
-  rolts: rabbitmq
+  roles: rabbitmq
 
 - hosts: zookeeper
   remote_user: ubuntu
