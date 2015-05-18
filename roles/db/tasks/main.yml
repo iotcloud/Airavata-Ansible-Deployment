@@ -27,8 +27,8 @@
   command: "pip install MySQL-python"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Start MySQL Service
-  service: name=mysqld state=started
+#- name: Start MySQL Service
+#  service: name=mysqld state=started
 
 - name: Create Application Database
   mysql_db: name={{item}} state=present
