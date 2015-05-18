@@ -4,13 +4,15 @@
   roles:
   - airavata_cleanup
 
--hosts: zookeeper
+- hosts: zookeeper
   remote_user: ubuntu
-  roles: zookeeper
+  roles:
+   - zookeeper
 
--hosts: rabbitmq
+- hosts: rabbitmq
   remote_user: ubuntu
-  roles: rabbitmq
+  roles:
+   - rabbitmq
 
 - hosts: zookeeper
   remote_user: ubuntu
