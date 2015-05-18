@@ -39,4 +39,12 @@
     JAVA_HOME: "{{java_default}}"
   sudo: yes
   sudo_user: "{{user_name}}"
+  command: "{{rabbitmq_home}}/sbin/rabbitmqctl stop"
+  ignore_errors: True
+
+- name: Start RabbitMQ
+  environment:
+    JAVA_HOME: "{{java_default}}"
+  sudo: yes
+  sudo_user: "{{user_name}}"
   command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"
