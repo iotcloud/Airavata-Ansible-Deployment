@@ -24,7 +24,7 @@
   file: state=link path={{rabbitmq_cfg}} src={{rabbitmq_sample_cfg}}
 
 - name: Fix ownership
-  file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes
+  file: state=directory path={{airavata_home}} owner=ubuntu group=sudo recurse=yes
 
 #- name: Set up RabbitMQ firewall rule
 #  lineinfile: dest={{iptable_rule_file}} state=present
