@@ -1,10 +1,11 @@
 ---
-- name: Install MySql package
+- name: Install MySql package Red Hat
   yum: name={{item}} state=latest
   with_items:
     - mysql-server
     - MySQL-python
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- name: Install MySql package Ubuntu
   apt: name={{item}} state=latest
     with_items:
       - mysql-server

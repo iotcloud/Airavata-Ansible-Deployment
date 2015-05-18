@@ -1,9 +1,10 @@
 ---
-- name: Install erlang
+- name: Install erlang RedHat
   yum: name=$item state=latest
     with_items:
       - erlang
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- name: Install erlang Ubuntu
   apt: name=$item state=latest
       with_items:
        - erlang
