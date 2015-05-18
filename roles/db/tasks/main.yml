@@ -4,6 +4,13 @@
   with_items:
     - mysql-server
     - MySQL-python
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  apt: name={{item}} state=latest
+    with_items:
+      - mysql-server
+      - MySQL-python
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
 
 - name: Start MySQL Service
   service: name=mysqld state=started
