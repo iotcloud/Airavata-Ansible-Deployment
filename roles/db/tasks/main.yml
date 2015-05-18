@@ -3,7 +3,7 @@
   yum: name=mysql-server state=latest
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Install MySql package Red Hat
+- name: Install MySqlpython  package Red Hat
   yum: name=MySQL-python state=latest
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
@@ -11,8 +11,20 @@
   apt: name=mysql-server state=latest
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Install MySql package Ubuntu
-  apt: name=MySQL-python state=latest
+- name: Install MySql python package Ubuntu
+  apt: name=python-pip state=latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install MySql python package Ubuntu
+  apt: name=python-dev state=latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install MySql python package Ubuntu
+  apt: name=libmysqlclient-dev state=latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install MySql python package Ubuntu
+  command: "pip install MySQL-python"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Start MySQL Service
