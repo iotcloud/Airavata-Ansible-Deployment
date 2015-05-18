@@ -1,9 +1,7 @@
 ---
 - name: Install libselinux-python
-  yum: name=$item state=latest
-      with_items:
-       - libselinux-python
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  yum: name=libselinux-python state=latest
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Create airavata user
   user: name=airavata comment="Airavata User" shell=/bin/bash 
