@@ -1,5 +1,5 @@
 ---
-user_name: ubutnu
+user_name: ubuntu
 user_group: sudo
 airavata_home: /home/ubuntu/airavata
 iptable_rule_file: /etc/sysconfig/iptables
