@@ -9,6 +9,16 @@
   roles:
   - common
 
+- hosts: apiserver
+  remote_user: "{{user_name}}"
+  roles:
+  - apache2
+
+- hosts: apiserver
+  remote_user: "{{user_name}}"
+  roles:
+  - php
+
 - hosts: zookeeper
   remote_user: "{{user_name}}"
   roles:
