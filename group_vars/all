@@ -1,5 +1,5 @@
 ---
-airavata_home: /home/airavata
+airavata_home: /home/ubuntu/airavata
 iptable_rule_file: /etc/sysconfig/iptables
 
 java_download_url: http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz
