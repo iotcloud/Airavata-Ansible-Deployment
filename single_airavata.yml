@@ -4,12 +4,10 @@
   roles:
   - airavata_cleanup
 
-- hosts: apiserver
-  remote_user: "{{user_name}}"
-  vars:
-    airavata_server: airavata-server
-  roles:
-  - airavata_common
+  - hosts: apiserver
+    remote_user: "{{user_name}}"
+    roles:
+    - common
 
 - hosts: zookeeper
   remote_user: "{{user_name}}"
@@ -20,6 +18,20 @@
   remote_user: "{{user_name}}"
   roles:
    - rabbitmq
+
+- hosts: db_server
+  remote_user: "{{user_name}}"
+  roles:
+   - db
+
+- hosts: apiserver
+  remote_user: "{{user_name}}"
+  vars:
+    airavata_server: airavata-server
+  roles:
+  - airavata_common
+
+
 
 - hosts: zookeeper
   remote_user: "{{user_name}}"
