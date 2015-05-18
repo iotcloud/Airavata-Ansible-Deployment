@@ -129,4 +129,4 @@
        line: "zookeeper.server.port={{zookeeper_port}}"}
 
 - name: Fix ownership
-  file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes
+  file: state=directory path={{airavata_home}} owner=ubuntu group=sudo recurse=yes
