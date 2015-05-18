@@ -35,7 +35,7 @@
   unarchive: src={{xsede_cert_archive}} dest={{airavata_install_path}} copy=no creates={{xsede_cert_home}}
 
 - name: Copy airavata ssh key directory
-  copy: src={{local_ssh_key_path}} dest={{airavata_ssh_key_path}} owner=airavata group=airavata backup=yes force=no
+  copy: src={{local_ssh_key_path}} dest={{airavata_ssh_key_path}} owner=ubuntu group=sudo backup=yes force=no
 
 - name: Update Airavata server property file
   lineinfile: dest={{airavata_server_property}} state=present backrefs=yes
