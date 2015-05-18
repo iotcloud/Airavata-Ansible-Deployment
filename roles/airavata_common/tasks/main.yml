@@ -35,7 +35,7 @@
   unarchive: src={{xsede_cert_archive}} dest={{airavata_install_path}} copy=no creates={{xsede_cert_home}}
 
 - name: Copy airavata ssh key directory
-  copy: src={{local_ssh_key_path}} dest={{airavata_ssh_key_path}} owner={{user_name}} group={{user_group}} backup=yes force=no
+  copy: src={{local_ssh_key_path}} dest={{airavata_ssh_key_path}} owner="{{user_name}}" group={{user_group}} backup=yes force=no
 
 - name: Update Airavata server property file
   lineinfile: dest={{airavata_server_property}} state=present backrefs=yes
@@ -129,4 +129,4 @@
        line: "zookeeper.server.port={{zookeeper_port}}"}
 
 - name: Fix ownership
-  file: state=directory path={{airavata_home}} owner={{user_name}} group={{user_group}} recurse=yes
+  file: state=directory path={{airavata_home}} owner="{{user_name}}" group={{user_group}} recurse=yes

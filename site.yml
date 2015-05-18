@@ -1,40 +1,40 @@
 ---
 - hosts: all
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   roles:
   - common
 
 - hosts: dbserver
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   roles:
   - db
 
 - hosts: zookeeper
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   roles:
   - zookeeper
 
 - hosts: rabbitmq
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   roles:
   - rabbitmq
 
 - hosts: apiserver
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: api-server
   roles:
   - apiserver
 
 - hosts: orchestrator
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: orchestrator-server
   roles:
   - orchestrator
 
 - hosts: gfac
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: gfac-server
   roles:

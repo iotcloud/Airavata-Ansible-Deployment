@@ -1,6 +1,6 @@
 ---
 - hosts: apiserver
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: api-server
   tasks:
@@ -8,11 +8,11 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/api-server.sh stop --force" 
 
 - hosts: orchestrator
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: orchestrator-server
   tasks:
@@ -20,11 +20,11 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/orchestrator-server.sh stop --force" 
 
 - hosts: gfac
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: gfac-server
   tasks:
@@ -32,21 +32,21 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/gfac-server.sh stop --force" 
 
 - hosts: zookeeper
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   tasks:
   - name: Restart ZooKeeper
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{zookeeper_home}}/bin/zkServer.sh restart"
 
 - hosts: apiserver
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: api-server
   tasks:
@@ -54,11 +54,11 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/api-server.sh start" 
 
 - hosts: orchestrator
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: orchestrator-server
   tasks:
@@ -66,11 +66,11 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/orchestrator-server.sh start" 
 
 - hosts: gfac
-  remote_user: {{user_name}}
+  remote_user: "{{user_name}}"
   vars:
     airavata_server: gfac-server
   tasks:
@@ -78,5 +78,5 @@
     environment:
       JAVA_HOME: "{{java_default}}"
     sudo: yes
-    sudo_user: {{user_name}}
+    sudo_user: "{{user_name}}"
     command: "{{airavata_server_home}}/bin/gfac-server.sh start" 
