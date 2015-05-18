@@ -5,9 +5,9 @@
   - airavata_cleanup
 
 - hosts: apiserver
-    remote_user: "{{user_name}}"
-    roles:
-    - common
+  remote_user: "{{user_name}}"
+  roles:
+  - common
 
 - hosts: zookeeper
   remote_user: "{{user_name}}"
@@ -30,8 +30,6 @@
     airavata_server: airavata-server
   roles:
   - airavata_common
-
-
 
 - hosts: zookeeper
   remote_user: "{{user_name}}"
