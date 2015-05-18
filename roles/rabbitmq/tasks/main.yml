@@ -48,3 +48,4 @@
   sudo: yes
   sudo_user: "{{user_name}}"
   command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"
+  ignore_errors: True
