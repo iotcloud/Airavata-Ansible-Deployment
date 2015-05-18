@@ -1,6 +1,6 @@
 ---
 - hosts: rabbitmq
-  remote_user: root
+  remote_user: ubuntu
   tasks:
   - name: Stop RabbitMQ
     environment:

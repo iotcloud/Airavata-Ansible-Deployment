@@ -71,7 +71,7 @@
              <Handler class="org.apache.airavata.gfac.ssh.handler.AdvancedSCPInputHandler">
                             <property name="privateKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa"/>
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
-                        <property name="userName" value="root"/>
+                        <property name="userName" value="ubuntu"/>
                         <property name="hostName" value="PGA_SERVER"/>
                         <property name="inputPath" value="AIRAVATA_HOME/input"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>
@@ -83,7 +83,7 @@
             <Handler class="org.apache.airavata.gfac.ssh.handler.AdvancedSCPOutputHandler">
                             <property name="privateKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa"/>
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
-                        <property name="userName" value="root"/>
+                        <property name="userName" value="ubuntu"/>
                         <property name="hostName" value="PGA_SERVER"/>
                         <property name="outputPath" value="PGA_OUTPUTPATH"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>
@@ -96,7 +96,7 @@
                  <Handler class="org.apache.airavata.gfac.ssh.handler.AdvancedSCPInputHandler">
                             <property name="privateKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa"/>
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
-                        <property name="userName" value="root"/>
+                        <property name="userName" value="ubuntu"/>
                         <property name="hostName" value="PGA_SERVER"/>
                         <property name="inputPath" value="AIRAVATA_HOME/input"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>
@@ -108,7 +108,7 @@
                 <Handler class="org.apache.airavata.gfac.ssh.handler.AdvancedSCPOutputHandler">
                             <property name="privateKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa"/>
                             <property name="publicKeyPath" value="AIRAVATA_HOME/.ssh/id_rsa.pub"/>
-                        <property name="userName" value="root"/>
+                        <property name="userName" value="ubuntu"/>
                         <property name="hostName" value="PGA_SERVER"/>
                         <property name="outputPath" value="PGA_OUTPUTPATH"/>
                         <property name="passPhrase" value="PGA_PASSPHRASE"/>

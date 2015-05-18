@@ -1,6 +1,6 @@
 ---
 - hosts: apiserver
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: api-server
   tasks:
@@ -12,7 +12,7 @@
     command: "{{airavata_server_home}}/bin/api-server.sh stop --force" 
 
 - hosts: orchestrator
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: orchestrator-server
   tasks:
@@ -24,7 +24,7 @@
     command: "{{airavata_server_home}}/bin/orchestrator-server.sh stop --force" 
 
 - hosts: gfac
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: gfac-server
   tasks:
@@ -36,7 +36,7 @@
     command: "{{airavata_server_home}}/bin/gfac-server.sh stop --force" 
 
 - hosts: zookeeper
-  remote_user: root
+  remote_user: ubuntu
   tasks:
   - name: Restart ZooKeeper
     environment:
@@ -46,7 +46,7 @@
     command: "{{zookeeper_home}}/bin/zkServer.sh restart"
 
 - hosts: apiserver
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: api-server
   tasks:
@@ -58,7 +58,7 @@
     command: "{{airavata_server_home}}/bin/api-server.sh start" 
 
 - hosts: orchestrator
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: orchestrator-server
   tasks:
@@ -70,7 +70,7 @@
     command: "{{airavata_server_home}}/bin/orchestrator-server.sh start" 
 
 - hosts: gfac
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: gfac-server
   tasks:

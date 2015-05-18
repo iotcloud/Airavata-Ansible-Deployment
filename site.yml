@@ -1,40 +1,40 @@
 ---
 - hosts: all
-  remote_user: root
+  remote_user: ubuntu
   roles:
   - common
 
 - hosts: dbserver
-  remote_user: root
+  remote_user: ubuntu
   roles:
   - db
 
 - hosts: zookeeper
-  remote_user: root
+  remote_user: ubuntu
   roles:
   - zookeeper
 
 - hosts: rabbitmq
-  remote_user: root
+  remote_user: ubuntu
   roles:
   - rabbitmq
 
 - hosts: apiserver
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: api-server
   roles:
   - apiserver
 
 - hosts: orchestrator
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: orchestrator-server
   roles:
   - orchestrator
 
 - hosts: gfac
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: gfac-server
   roles:

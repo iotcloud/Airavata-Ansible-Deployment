@@ -27,9 +27,9 @@ Update any download_url and installation paths as desired before deployment.
 5. Internal Notes:
   - Make sure "local_ssh_key_path" exists on the local machine. SSH key pairs will NOT be copied over if they already exist on the remote machine, however it is important to have it on the local machine for Ansible to run through. The simplest way to have a version on the local machine is:
 	* For gw127: 
-	   scp -r root@gw127.iu.xsede.org:/home/airavata/.ssh /tmp/airavata_ssh_keys
+	   scp -r ubuntu@gw127.iu.xsede.org:/home/airavata/.ssh /tmp/airavata_ssh_keys
 	* For gw111: 
-	   scp -r root@gw111.iu.xsede.org:/home/airavata/.ssh /tmp/airavata_ssh_keys
+	   scp -r ubuntu@gw111.iu.xsede.org:/home/airavata/.ssh /tmp/airavata_ssh_keys
   - Default settings included in group_vars/* are conform with gw127, only airavata version variables and passwords need to be set correctly before deployment:
 	* "airavata_version" and "old_airavata_version" in group_vars/airavata;
 	* "myproxy_password", "ssh_keypass" and "pga_passphrase" in group_vars/airavata;

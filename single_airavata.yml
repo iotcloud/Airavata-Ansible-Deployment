@@ -1,11 +1,11 @@
 ---
 - hosts: apiserver
-  remote_user: root
+  remote_user: ubuntu
   roles:
   - airavata_cleanup
 
 - hosts: zookeeper
-  remote_user: root
+  remote_user: ubuntu
   tasks:
   - name: Restart ZooKeeper
     environment:
@@ -15,7 +15,7 @@
     command: "{{zookeeper_home}}/bin/zkServer.sh restart"
 
 - hosts: apiserver
-  remote_user: root
+  remote_user: ubuntu
   vars:
     airavata_server: airavata-server
   roles:
