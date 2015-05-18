@@ -4,7 +4,7 @@
   roles:
   - airavata_cleanup
 
-  - hosts: apiserver
+- hosts: apiserver
     remote_user: "{{user_name}}"
     roles:
     - common
@@ -19,7 +19,7 @@
   roles:
    - rabbitmq
 
-- hosts: db_server
+- hosts: apiserver
   remote_user: "{{user_name}}"
   roles:
    - db
