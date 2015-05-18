@@ -12,7 +12,7 @@
   file: state=link path={{zookeeper_cfg}} src={{zookeeper_sample_cfg}}
 
 - name: Fix ownership
-  file: state=directory path={{airavata_home}} owner=airavata group=airavata recurse=yes
+  file: state=directory path={{airavata_home}} owner=ubuntu group=sudo recurse=yes
 
 - name: Set up ZooKeeper firewall rule
   lineinfile: dest={{iptable_rule_file}} state=present
