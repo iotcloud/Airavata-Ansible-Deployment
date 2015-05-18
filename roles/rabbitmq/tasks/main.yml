@@ -24,7 +24,7 @@
   file: state=link path={{rabbitmq_cfg}} src={{rabbitmq_sample_cfg}}
 
 - name: Fix ownership
-  file: state=directory path={{airavata_home}} owner=ubuntu group=sudo recurse=yes
+  file: state=directory path={{airavata_home}} owner={{user_name}} group={{user_group}} recurse=yes
 
 #- name: Set up RabbitMQ firewall rule
 #  lineinfile: dest={{iptable_rule_file}} state=present
@@ -38,5 +38,5 @@
   environment:
     JAVA_HOME: "{{java_default}}"
   sudo: yes
-  sudo_user: ubuntu
+  sudo_user: {{user_name}}
   command: "{{rabbitmq_home}}/sbin/rabbitmq-server -detached"

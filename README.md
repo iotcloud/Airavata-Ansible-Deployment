@@ -14,7 +14,7 @@ Airavata-Ansible-Deployment
 
 3. group_vars:
   - all: global variables used by all server groups, including Java and database information, as well as server ports. Set the variable "dbpassword" to the real database password before deployment. 
-  - ubuntu: ubuntu server group variables. "old_airavata_version" is used for cleanup of previous installations by ubuntu.yml. "myproxy_password" and "ssh_keypass" need to be set correctly before deployment. "local_ssh_key_path" is the local directory of ubuntu ssh key pairs to be copied to the ubuntu user home directory on remote machines. 	
+  - {{user_name}}: ubuntu server group variables. "old_airavata_version" is used for cleanup of previous installations by ubuntu.yml. "myproxy_password" and "ssh_keypass" need to be set correctly before deployment. "local_ssh_key_path" is the local directory of ubuntu ssh key pairs to be copied to the ubuntu user home directory on remote machines. 	
   - rabbitmq: rabbimq server group variables.
   - zookeeper: zookeeper server group variables. 
 Update any download_url and installation paths as desired before deployment. 
