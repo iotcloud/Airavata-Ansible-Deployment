@@ -4,6 +4,11 @@
   roles:
   - airavata_cleanup
 
+- hosts: apiserver
+  remote_user: "{{user_name}}"
+  roles:
+  - airavata_common
+
 - hosts: zookeeper
   remote_user: "{{user_name}}"
   roles:
