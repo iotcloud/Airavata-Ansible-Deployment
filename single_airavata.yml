@@ -6,6 +6,8 @@
 
 - hosts: apiserver
   remote_user: "{{user_name}}"
+  vars:
+    airavata_server: airavata-server
   roles:
   - airavata_common
 
