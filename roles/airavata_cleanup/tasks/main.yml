@@ -24,10 +24,10 @@
     - gfac-server
     - airavata-server
 
-- name: Move old installation directory
-  command: "mv {{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/ {{airavata_backup_path}} removes={{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/"
-  with_items: 
-    - api-server
-    - orchestrator-server
-    - gfac-server
-    - airavata-server
+#- name: Move old installation directory
+#  command: "mv {{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/ {{airavata_backup_path}} removes={{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/"
+#  with_items:
+#    - api-server
+#    - orchestrator-server
+#    - gfac-server
+#    - airavata-server
