@@ -1,14 +1,14 @@
 ---
 - name: Create Airavata backup path
   sudo: yes
-  sudo_user: airavata
+  sudo_user: ubuntu
   file: state=directory path={{airavata_backup_path}}
 
 - name: Stop Airavata servers
   environment:
     JAVA_HOME: "{{java_default}}"
   sudo: yes
-  sudo_user: airavata
+  sudo_user: ubuntu
   command: "{{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/bin/{{item}}.sh stop --force removes={{airavata_install_path}}/apache-{{item}}-{{old_airavata_version}}/bin/{{item}}.sh"
   with_items:
     - api-server
