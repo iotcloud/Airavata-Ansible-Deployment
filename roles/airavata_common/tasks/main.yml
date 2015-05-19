@@ -45,11 +45,11 @@
     # API Server Registry Configuration
     - {regexp: "registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver", 
        line: "#registry.jdbc.driver=org.apache.derby.jdbc.ClientDriver"}
-    - {regexp: "registry.jdbc.url=jdbc:derby://localhost:1527/persistent_data;create=true;user=airavata;password=airavata",
-       line: "#registry.jdbc.url=jdbc:derby://localhost:1527/persistent_data;create=true;user=airavata;password=airavata"}
+    - {regexp: "registry.jdbc.url=jdbc:derby://localhost:1527/experiment_catalog;create=true;user=airavata;password=airavata",
+       line: "#registry.jdbc.url=jdbc:derby://localhost:1527/experiment_catalog;create=true;user=airavata;password=airavata"}
     - {regexp: "#registry.jdbc.driver=com.mysql.jdbc.Driver",
        line: "registry.jdbc.driver=com.mysql.jdbc.Driver"}
-    - {regexp: "#registry.jdbc.url=jdbc:mysql://localhost:3306/persistent_data",
+    - {regexp: "#registry.jdbc.url=jdbc:mysql://localhost:3306/experiment_catalog",
        line: "registry.jdbc.url=jdbc:mysql://{{db_server}}:{{mysql_port}}/{{airavata_db}}"}
     - {regexp: "registry.jdbc.user=airavata", 
        line: "registry.jdbc.user={{dbuser}}"}
