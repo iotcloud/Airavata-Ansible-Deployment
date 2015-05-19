@@ -35,7 +35,7 @@ ssh_keypass: set_your_secret
 apiserver_download_url: https://dist.apache.org/repos/dist/release/airavata/0.14/apache-api-server-0.14-bin.tar.gz
 orchestrator_download_url: https://dist.apache.org/repos/dist/release/airavata/0.14/apache-orchestrator-server-0.14-bin.tar.gz
 gfac_download_url: https://dist.apache.org/repos/dist/release/airavata/0.14//apache-gfac-server-0.14-bin.tar.gz
-airavata_single_download_url: https://dist.apache.org/repos/dist/release/airavata/0.14/apache-airavata-server-0.14-bin.tar.gz
+airavata_single_download_url: https://iu.box.com/shared/static/hzv36n707jr1xpfga36h34xuleg9sfnx.gz
 
 gfac_server_config: "{{airavata_server_home}}/bin/gfac-config.xml"
 pga_passphrase: set_your_secret
