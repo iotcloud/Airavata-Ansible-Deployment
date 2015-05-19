@@ -1,6 +1,4 @@
 ---
 - name: Install Apach2
-  apt: pkg=apache2 state=latest
-
-- name: ensure apache is running (and enable it at boot)
-  service: name=httpd state=started enabled=yes
+  sudo: yes
+  apt: pkg=apache2 update_cache=yes state=latest
