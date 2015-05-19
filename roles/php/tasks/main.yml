@@ -1,4 +1,11 @@
 ---
-- name: Install Apach2
+- name: Install php5
   apt: pkg=php5 state=latest
+  notify: restart apache2
+
+- name: Install mycrypt for php
+  apt: name=php5-mcrypt state=latest
+
+- name: Enable mycrypt for php
+  command: "php5enmod mcrypt"
   notify: restart apache2
