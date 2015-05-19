@@ -4,28 +4,28 @@ orchestrator
 gfac
 
 [airavata:vars]
-db_server=10.23.2.83
-zookeeper_server=10.23.2.83
-rabbitmq_server=10.23.2.83
-api_server=10.23.2.83
-orchestrator_server=10.23.2.83
-gfac_server=10.23.2.83
-pga_server=10.23.2.83
+db_server=localhost
+zookeeper_server=localhost
+rabbitmq_server=localhost
+api_server=localhost
+orchestrator_server=localhost
+gfac_server=localhost
+pga_server=localhost
 
 [dbserver]
-10.23.2.83
+localhost
 
 [zookeeper]
-10.23.2.83
+localhost
 
 [rabbitmq]
-10.23.2.83
+localhost
 
 [apiserver]
-10.23.2.83
+localhost
 
 [orchestrator]
-10.23.2.83
+localhost
 
 [gfac]
-10.23.2.83
+localhost
