@@ -36,15 +36,8 @@
     - "{{airavata_db}}"
     - "{{appcatalog_db}}"
 
-
-
 - name: update mysql root password for all root accounts
-      mysql_user: name={{dbuser}} host={{item}} password={{dbpassword}}
-      with_items:
-        - "{{ansible_hostname}}"
-        - 127.0.0.1
-        - ::1
-        - localhost
+  mysql_user: name={{dbuser}} host="{{ansible_hostname}}" password={{dbpassword}}
 
 - name: copy .my.cnf file with root password credentials
   template: src=templates/my.cnf.j2 dest=/ubuntu/.my.cnf owner=ubuntu mode=0600
