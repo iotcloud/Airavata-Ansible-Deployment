@@ -43,7 +43,7 @@
   template: src=my.cnf.j2 dest=/home/ubuntu/.my.cnf owner=ubuntu mode=0600
 
 - name: delete anonymous MySQL server user for $server_hostname
-  action: mysql_user user="" host="{{gateway}}" state="absent"
+  action: mysql_user user="" host="gateway" state="absent"
 
 - name: delete anonymous MySQL server user for localhost
   action: mysql_user user="" state="absent"
