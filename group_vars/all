@@ -4,10 +4,10 @@ user_group: sudo
 airavata_home: /home/ubuntu/airavata
 iptable_rule_file: /etc/sysconfig/iptables
 
-java_download_url: http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz
+java_download_url: http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz
 java_install_path: /usr/java
-java_archive: "{{java_install_path}}/jdk-7u71-linux-x64.tar.gz"
-java_name: "{{java_install_path}}/jdk1.7.0_71"
+java_archive: "{{java_install_path}}/jdk-8u45-linux-x64.tar.gz"
+java_name: "{{java_install_path}}/jdk1.8.0_45"
 java_symlink: "{{java_install_path}}/latest"
 java_default: "{{java_install_path}}/default"
 
