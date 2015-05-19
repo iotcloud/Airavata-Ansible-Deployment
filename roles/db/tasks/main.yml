@@ -40,7 +40,7 @@
   mysql_user: name={{dbuser}} host="{{ansible_hostname}}" password={{dbpassword}}
 
 - name: copy .my.cnf file with root password credentials
-  template: src=templates/my.cnf.j2 dest=/ubuntu/.my.cnf owner=ubuntu mode=0600
+  template: src=my.cnf.j2 dest=/ubuntu/.my.cnf owner=ubuntu mode=0600
 
 - name: delete anonymous MySQL server user for $server_hostname
   action: mysql_user user="" host="{{ server_hostname }}" state="absent"
