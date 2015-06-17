@@ -6,6 +6,11 @@
 - name: Create airavata user
   user: name=airavata comment="Airavata User" shell=/bin/bash 
 
+- name: Install unzip
+  apt: name=unzip state=latest
+
+
+
 - name: Create Java install path
   file: state=directory path={{java_install_path}} owner={{user_name}} group={{user_group}}
 
